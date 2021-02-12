@@ -1,0 +1,8 @@
+<h2>Artists List</h2>
+<% myArtists.forEach( artist => { %>
+    <li class="list-group-item">
+        <a href='/artists/<%= artist.id %>'>
+          <%= artist.name %> <%= artist.bio %>
+        </a>
+    </li>
+  <% }) %>

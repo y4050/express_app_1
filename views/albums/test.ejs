@@ -1,0 +1,11 @@
+<section>
+    <h2>Show Page for <%=album.name%></h2>
+    <ul>
+      <li>Name: <%=album.name%></li>
+    </ul>
+  </section>
+  <section>
+    <form action="/albums/<%=album.id%>?_method=DELETE" method="POST">
+      <button type="submit">Delete Album</button>
+    </form>
+  </section>
