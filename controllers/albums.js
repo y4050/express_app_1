@@ -64,4 +64,31 @@ router.delete('/:id', async(req, res) => {
     }
   });
 
+
+
+
+  // GET Edit
+router.get('/:id/edit', async(req, res) => {
+  try{
+      const album = await db.album.findOne({ where: {id: req.params.id}})
+      res.render('albums/edit', { album });
+  }catch(e) {
+      console.log("***ERROR***", e.message)
+  }
+});
+
+// Update
+router.put('/:id', (req, res) => {
+  db.album.update({ name: req.body.name, artist: req.body.artist, songCount: req.body.songCount, year: req.body.year }, {
+    where: {
+      id: req.params.id
+    }
+  })
+  .then((update)=> {
+      console.log('Updated = ', update);
+      res.redirect('/albums/');
+  });
+});
+
+
 module.exports = router;

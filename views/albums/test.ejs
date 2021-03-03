@@ -2,9 +2,13 @@
     <h2>Show Page for <%=album.name%></h2>
     <ul>
       <li>Name: <%=album.name%></li>
+      <li>Artist: <%=album.artist%></li>
+      <li>Song Count: <%=album.songCount%></li>
+      <li>Year: <%=album.year%></li>
     </ul>
   </section>
   <section>
+    <a href="/albums/<%=album.id%>/edit">Edit</a>
     <form action="/albums/<%=album.id%>?_method=DELETE" method="POST">
       <button type="submit">Delete Album</button>
     </form>
